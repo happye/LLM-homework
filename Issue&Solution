@@ -1,0 +1,17 @@
+1.peft lora训练语音识别报错：Multiple languages detected when trying to predict...
+
+解决方案：https://github.com/huggingface/transformers/issues/28814
+
+from transformers import WhisperForConditionalGeneration
+model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-small")
+// 设置此行解决问题
+model.generation_config.language = "chinese"  # define your language of choice here
+
+
+2.模型量化时报错：ValueError: Invalid pattern: '**' can only be an entire path component
+
+解决方案：https://github.com/huggingface/datasets/issues/6352
+该问题源于fsspec中的重大修改，在2.14.6已修复，执行pip install -U datasets即可。
+但在我的环境中：
+datasets 2.18.0 requires fsspec[http]<=2024.2.0,>=2023.1.0, but you have fsspec 2024.3.1 which is incompatible.
+需要将版本改为：pip install fsspec==2024.2.0
