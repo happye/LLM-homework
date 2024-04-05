@@ -15,3 +15,8 @@ model.generation_config.language = "chinese"  # define your language of choice h
 但在我的环境中：
 datasets 2.18.0 requires fsspec[http]<=2024.2.0,>=2023.1.0, but you have fsspec 2024.3.1 which is incompatible.
 需要将版本改为：pip install fsspec==2024.2.0
+
+3.练习ChatGLM3时使用原始模型对话，在此处 response, history = base_model.chat(tokenizer, query=input_text)
+报错：UnicodeDecodeError: 'ascii' codec can't decode byte 0xe6 in position 0: ordinal not in range(128)
+
+解决方案：无
