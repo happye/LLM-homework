@@ -20,3 +20,8 @@ datasets 2.18.0 requires fsspec[http]<=2024.2.0,>=2023.1.0, but you have fsspec 
 报错：UnicodeDecodeError: 'ascii' codec can't decode byte 0xe6 in position 0: ordinal not in range(128)
 
 解决方案：conda环境为python3.11.8,升级为python3.12.2解决。
+
+4.使用deepspeed运行zero3 5 3b模型
+报错：return -9
+https://github.com/microsoft/DeepSpeed/issues/3160
+怀疑内存不足(32G)
