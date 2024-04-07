@@ -25,3 +25,17 @@ datasets 2.18.0 requires fsspec[http]<=2024.2.0,>=2023.1.0, but you have fsspec 
 报错：return -9
 https://github.com/microsoft/DeepSpeed/issues/3160
 怀疑内存不足(32G)
+
+5.微调Chatglm3-6B
+NotADirectoryError: [Errno 20] Not a directory: '/home/crux/miniconda3/envs/transformers/lib/python3.12/site-packages/huggingface_hub-0.22.1-py3.8.egg/huggingface_hub/templates/modelcard_template.md'
+直接删掉这个egg文件/目录，它会重新下别的。
+
+
+6.
+KeyError: 'output_ids'
+跟eval_steps相关，每次我step=2000时都会中断报错，这是因为什么？eval_steps是什么意思？我应该如何设置eval_steps？
+remove_unused_columns: false（原来为true）
+
+一些其他参数相关：
+trainer.train(resume_from_checkpoint=True)
+
